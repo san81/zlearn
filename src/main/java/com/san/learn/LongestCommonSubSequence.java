@@ -12,8 +12,12 @@ import java.util.Set;
 public class LongestCommonSubSequence {
 
     public static void main(String[] a) {
-        String s1 = "0Iamgoing";
-        String s2 = "0Iamcoming";
+       // String s1 = "0aeroplane";
+       // String s2 = "0aeoplne";
+        
+        String s1 = "0manufacturing";
+        String s2 = "0menifoctring";
+        
         LongestCommonSubSequence sub = new LongestCommonSubSequence();
         System.out.println(sub.findLCS(s1, s2));
         System.out.println(sub.findLCSSDynamic(s1, s2));
@@ -90,7 +94,7 @@ public class LongestCommonSubSequence {
                 if(i == 0 && j == 0) {
                     max = 0;
                 }else if( i>0){
-                    max=max>matrix[i-1][j]?max:matrix[i-1][j];
+                    max=max > matrix[i-1][j] ? max : matrix[i-1][j];
                 }
                 
                 
@@ -101,6 +105,8 @@ public class LongestCommonSubSequence {
             }
         }
         printMatrix(matrix, s1, s2);
+        
+        System.out.println("Number of matching letter = "+(max-1));
         
         if(matrix[s1.length()-1][s2.length()-1] == 0) {
             return "NO_SUB_SEQUENCE_EXISTS";
@@ -134,12 +140,12 @@ public class LongestCommonSubSequence {
         StringBuffer sb = new StringBuffer();
         sb.append("     ");
         for(int i=0;i<s2.length();i++){
-            sb.append(s2.charAt(i)).append("   ");
+            sb.append(String.format("%4s",s2.charAt(i)));
         }
         for(int i=0;i<s1.length();i++){
-            sb.append("\n").append(s1.charAt(i)).append("   ");
+            sb.append("\n").append(String.format("%4s",s1.charAt(i)));
             for(int j=0;j<s2.length();j++){
-                sb.append(matrix[i][j]).append("   ");
+                sb.append(String.format("%4s", matrix[i][j]));
             }
         }
         System.out.println(sb.toString());
