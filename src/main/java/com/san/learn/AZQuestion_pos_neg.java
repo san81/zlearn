@@ -38,6 +38,34 @@ for(int i=length-counter;i>=0;i--){
  * @version $Revision: 1.0 $, $Date: Jul 30, 2014
  */
 public class AZQuestion_pos_neg {
+    
+    public static void main(String arg[]){
+        int[] ar= new int[]{ 1 , 3 , -2 , 0 , 4 , -2 , -1 , 8,9 } ;
+        
+       
+        int negCount=3;
+        int negIndex =(ar.length-negCount)-1;
+        int posIndexEnd =negIndex;
+        
+        
+       for(int i=0;i<=posIndexEnd;i++){
+           if(ar[i]<0){
+               //swap with negative location.
+               int tmp=ar[i];
+               ar[i]=ar[negIndex];
+               ar[negIndex]=tmp;
+               negIndex++;
+               if(ar[i]<0){
+                   i--;
+               }
+           }
+       }
+        
+        System.out.println(Arrays.toString(ar));
+        
+        
+    }
+    
 
     public static void main1(String arg[]){
         int[] ar= new int[]{ 1 , 3 , -2 , 0 , 4 , -2 , -1 , 8,9 } ;
@@ -79,7 +107,7 @@ public class AZQuestion_pos_neg {
     
     
     
-    public static void main(String arg[]){
+    public static void main__(String arg[]){
         int[] ar= new int[]{ -12,1 , 3 , -2 , 0 , 4 , -2 , -1 , 8,9,-4 } ;
         
         int lastSwapPos=5;

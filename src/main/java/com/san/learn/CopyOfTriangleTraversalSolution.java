@@ -83,7 +83,7 @@ y4   99  99   1   1    1
      [101, 102, 102, 100, 0]
      [198, 100, 100, 100, 0]
      
-     ramati
+     pramati
  * 
  * @author <a href="santhosh.g@leantaas.com">Santhosh Gandhe</a>
  * @version $Revision: 1.0 $, $Date: Aug 6, 2014
