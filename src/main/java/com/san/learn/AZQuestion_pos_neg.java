@@ -50,6 +50,7 @@ public class AZQuestion_pos_neg {
         
        for(int i=0;i<=posIndexEnd;i++){
            if(ar[i]<0){
+               System.out.println(i+" before "+ar[i]+Arrays.toString(ar));
                //swap with negative location.
                int tmp=ar[i];
                ar[i]=ar[negIndex];
@@ -58,6 +59,7 @@ public class AZQuestion_pos_neg {
                if(ar[i]<0){
                    i--;
                }
+               System.out.println(i+" after "+ar[i]+Arrays.toString(ar));
            }
        }
         

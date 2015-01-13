@@ -15,8 +15,11 @@ public class LongestCommonSubSequence {
        // String s1 = "0aeroplane";
        // String s2 = "0aeoplne";
         
-        String s1 = "0manufacturing";
-        String s2 = "0menifoctring";
+//        String s1 = "0manufacturing";
+//        String s2 = "0menifoctring";
+        
+        String s1 = "0Carthorse";
+        String s2 = "0Orchestra";
         
         LongestCommonSubSequence sub = new LongestCommonSubSequence();
         System.out.println(sub.findLCS(s1, s2));

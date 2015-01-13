@@ -20,10 +20,6 @@ public class BitOperations {
         // prints "2"
         System.out.println(val );
         System.out.println(val & bitmask);
-        
-        
-      
-      
       
     }
 }
