@@ -2,7 +2,7 @@
 package com.san.learn.logical;
 
 /**
- * Rotate a given matric by 90 Degrees
+ * Rotate a given matrix by 90 Degrees
  * 
  * [1][2][3][4]
 [5][6][7][8]
