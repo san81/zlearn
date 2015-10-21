@@ -4,6 +4,14 @@ package com.san.learn;
 public class SriSolu {
 
     public static void main(String ar[]){
+        int sum=0;
+        for(int i=99;i>7;i-=4){
+            System.out.println(i);
+            sum+=(i+7);
+        }
+        System.out.println(sum);
+    }
+    public static void main__(String ar[]){
        
             int[] numbers=new int[]{ 1 , 3 , -2 , 0 , 4 , -2 , -1 , 8 } ;
             int noOfPositives = 22; // we can easily get this

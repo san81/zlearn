@@ -25,7 +25,7 @@ public class HeapSortExample {
 
     public static void heapify(int[] input){
         int length=input.length;
-        int start = (int) Math.round((length-2)*1.0/2);
+        int start = (length-2)/2;
         
         while(start>=0){
             siftDown(input, start, length-1);
@@ -34,8 +34,8 @@ public class HeapSortExample {
         }
     }
     
-    public static void siftDown(int[] input, int start,  int end ){
-        int root=start;
+    public static void siftDown(int[] input, int root,  int end ){
+       // int root=start;
         int swap;
         int child;
         while(root*2+1<=end){

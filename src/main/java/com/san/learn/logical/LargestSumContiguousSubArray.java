@@ -13,24 +13,33 @@ public class LargestSumContiguousSubArray {
 
     public static void main(String ar[]){
         int ary[] = new int[] { 3,-2,5,-4,2,7,-1 };
-        int sumSoFar=0, sumTillHere=0;
+        int sumEndingHere=0, sumSoFar=0;
         int endIndex=0;
         int length=0;
+        int incrCnt=0;
+        int sumSoFarTillLstIteration=0;
         for(int i=0;i<ary.length;i++){
-            sumTillHere=sumTillHere+ary[i];
-            if(sumTillHere<0){
-                sumTillHere=0;
+            sumSoFarTillLstIteration=sumSoFar;
+            sumSoFar=sumSoFar+ary[i];
+            if(sumSoFar<0){
+                sumSoFar=0;
+                incrCnt=0;
                 length=0;
             }
             
-            if(sumTillHere>sumSoFar){
-                sumSoFar=sumTillHere;
+            if(sumSoFar>sumEndingHere){
+                sumEndingHere=sumSoFar;
                 endIndex=i;
-            }else{
-                length++;
+                length+=incrCnt;
+                incrCnt=0;
             }
+            if( sumEndingHere>=sumSoFar && sumSoFar>sumSoFarTillLstIteration) {
+                incrCnt++;
+            }
+           
+            System.out.println(" SumEndingHere :: "+sumEndingHere+" sumTillNow "+sumSoFar+" Length: "+length);
         }
-        System.out.println(" LargestSumContiguousSubArray :: "+sumSoFar);
+        System.out.println(" LargestSumContiguousSubArray :: "+sumEndingHere);
         System.out.println(" length :: "+length+" End Index "+endIndex);
     }
 }

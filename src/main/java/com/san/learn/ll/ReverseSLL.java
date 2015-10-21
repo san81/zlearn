@@ -37,7 +37,7 @@ public class ReverseSLL {
         }
         
         Node revershead=head;
-        Node headNext=revershead.next;
+        Node headNext=head.next;
         revershead.next=null;
         
         while(headNext!=null){

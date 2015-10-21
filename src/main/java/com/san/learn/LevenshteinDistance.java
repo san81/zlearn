@@ -26,7 +26,7 @@ public class LevenshteinDistance {
 
     public static void main(String[] args) {
         
-        String s1 = "kittn";
+        String s1 = "KODEBEAGLE";
         List<String> words = readWords();
         for(String word:words){
             if(word.length()>s1.length()+2 || word.length()<s1.length()){
@@ -38,7 +38,7 @@ public class LevenshteinDistance {
                 }
             }
         }
-        //System.out.println(" Distance "+getLevenshteinDistance(s1, s2));
+        System.out.println(" Distance "+getLevenshteinDistance(s1, "MVIEWER"));
        
     }
     
@@ -76,13 +76,18 @@ public class LevenshteinDistance {
         for(int j=1;j<s2.length()+1;j++){
             for(int i=1;i<s1.length()+1;i++){
                 
-               int qty=s1.charAt(i-1)==s2.charAt(j-1)?0:1;
-               int curMin=minOf(data[i-1][j-1], data[i][j-1], data[i-1][j]);
-               data[i][j]=qty+curMin;
+                if(s1.charAt(i-1)==s2.charAt(j-1)){
+                    data[i][j]=data[i-1][j-1];
+                }else{
+                    int qty=s1.charAt(i-1)==s2.charAt(j-1)?0:1;
+                    int curMin=minOf(data[i-1][j-1]+4, data[i][j-1]+3, data[i-1][j]+5);
+                    data[i][j]=qty+curMin;
+                }
+               
             }
             //System.out.println("\n");
         }
-        //printMatrix(data, " "+s1, " "+s2);
+        printMatrix(data, " "+s1, " "+s2);
         return data[s1.length()][s2.length()];
     }
     
