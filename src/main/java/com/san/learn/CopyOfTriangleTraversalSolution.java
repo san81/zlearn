@@ -111,8 +111,6 @@ public class CopyOfTriangleTraversalSolution {
                 sum[counter]=mat[i][counter]+sum[counter+1];
             }
           }
-           
-         
        }
         System.out.println(sum[0]);
     }
