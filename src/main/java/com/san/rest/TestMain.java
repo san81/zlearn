@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.util.Calendar;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -55,8 +56,9 @@ public class TestMain {
         MyClass obj = gson.fromJson("{\"name\": \"Sanjay\"}", MyClass.class);
         System.out.println(obj.getName());*/
         
-        long  l = 10_000_000;
-        System.out.println(l);
+        Calendar calLyEnd = Calendar.getInstance();
+        calLyEnd.add(Calendar.DAY_OF_YEAR, -1*calLyEnd.get(Calendar.DAY_OF_YEAR));
+        System.out.println(calLyEnd.getTime());
     }
 
     public static void main1(String[] args) throws IOException {

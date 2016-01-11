@@ -3,7 +3,7 @@ package com.san.learn.logical;
 
 /**
  * Problem:
- * Given two arrays,  one is of size (n) and other one is of (n-1) haing all these (n-1) elements present in the first array,
+ * Given two arrays,  one is of size (n) and other one is of (n-1) having all these (n-1) elements present in the first array,
  * What is the best way to find the missing element in second array.
  * 
  * @author <a href="santhosh.g@leantaas.com">Santhosh Gandhe</a>

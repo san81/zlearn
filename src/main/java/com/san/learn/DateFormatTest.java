@@ -30,7 +30,7 @@ public class DateFormatTest {
         System.out.println(padRight("Howto", 20) + "*");
         //System.out.println(padLeft("Howto", 20) + "*");
 */        
-        System.out.println(getDateFromString("4/9/13 10:15","MM/dd/yy HH:mm"));
+        System.out.println(getDateFromString("12/31/2015  02:15:33PM","MM/dd/yyyy hh:mm:ssa"));
     }
     
     public static String padRight(String s, int n) {
