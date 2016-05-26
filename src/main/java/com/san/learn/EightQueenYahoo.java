@@ -30,7 +30,7 @@ public class EightQueenYahoo {
     */
 
 
-     int board[8][8] = new int[8][8];
+     int board[][] = new int[8][8];
      //cell with even j index are white
      //cell with odd j index are black
 
@@ -43,7 +43,7 @@ public class EightQueenYahoo {
         
         public int[][] findGivenQCountWPositions(int qCount) {
         
-            
+            int counter=0;
            
              for(int i=0;i<board.length;i++){
                 for(int j=0;j<board.length;j++){
@@ -57,20 +57,20 @@ public class EightQueenYahoo {
                     
                 }    
             }        
-            
+            return board;
              
         }
         
-        public boolea isItThreaten(int[][] board, int i, int j){
+        public boolean isItThreaten(int[][] board, int i, int j){
             boolean isThreaten=false;
-            for( int x=0;x<board.lenght;x++){
+            for( int x=0;x<board.length;x++){
                 if(board[i][x]==-1){
                     isThreaten=true;
                     return isThreaten;
                 }
             }
             
-            for( int x=0;x<board[i].lenght;x++){
+            for( int x=0;x<board[i].length;x++){
                 if(board[x][j]==-1){
                     isThreaten=true;
                     return isThreaten;

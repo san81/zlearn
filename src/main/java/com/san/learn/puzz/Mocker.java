@@ -39,10 +39,10 @@ public class Mocker<T extends Exception> {
            System.out.println(me.getClass().getName());
            
            Map<String,Object> collection = new TreeMap<>();
-           System.out.println(collection.compute("foo",
+           /*System.out.println(collection.compute("foo",
                    (k,v) ->(v==null) ? new ArrayList<Object>() : ((List)v).add("bar"))
                    );
-           
+           */
         }catch(final RuntimeException e){
             e.printStackTrace();
         }catch(final Exception e){
