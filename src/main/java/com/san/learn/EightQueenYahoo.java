@@ -29,6 +29,7 @@ public class EightQueenYahoo {
 
     */
 
+    //String
 
      int board[][] = new int[8][8];
      //cell with even j index are white
