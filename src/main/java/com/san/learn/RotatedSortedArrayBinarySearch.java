@@ -13,7 +13,7 @@ public class RotatedSortedArrayBinarySearch {
 
     public static void main(String ar[]){
         int[] arr = {40,50,60,70,1,2,12,31,34};
-        System.out.print("*****: "+find(arr,1));
+        System.out.print("*****: "+find(arr,31));
     }
 
 

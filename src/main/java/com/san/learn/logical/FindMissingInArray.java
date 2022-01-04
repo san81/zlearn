@@ -47,10 +47,10 @@ public class FindMissingInArray {
     /**
      * Time complexity of this approach is O(n)
      * 
-     * This approach is efficient and liner.
+     * This approach is efficient and linear.
      * But this approach works only when
-     * -there is only one element is missing
-     * -and except the missing one, all other elements should present in both the arrays
+     * there is one only one element is missing
+     * and except the missing one, all other elements should present in both the arrays
      * 
      * @param firstAr
      * @param secondAr

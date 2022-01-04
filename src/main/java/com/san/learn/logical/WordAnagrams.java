@@ -40,11 +40,7 @@ public class WordAnagrams {
         List<Integer> anList;
         for(int i=0;i<inputStrs.length;i++){
             hash=getHash(inputStrs[i]);
-            anList=wordAnagaramIndex.get(hash);
-            if(null==anList){
-                anList=new ArrayList<Integer>();
-                wordAnagaramIndex.put(hash, anList);
-            }
+            anList=wordAnagaramIndex.computeIfAbsent(hash, k -> new ArrayList<Integer>());
             anList.add(i+1);
         }
         

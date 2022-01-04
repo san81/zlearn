@@ -2,7 +2,7 @@
 package com.san.learn;
 
 /**
- * puzzle to calculate the distnace between the two points in a 2d matrix
+ * puzzle to calculate the distance between the two points in a 2d matrix
  * 
  * Ex.  (-7,-1) to ( -13,5)  = 6
  * 

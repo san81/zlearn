@@ -87,6 +87,18 @@ public class DFS {
                 }
             }
     }
+
+    Stack<Integer> topologicalSortNodes = new Stack<>();
+    public void topologicalSort(int currentNode){
+        vertexes.get(currentNode).visited=true;
+        for(int j=0;j<vcount;j++){
+            if(adjMat[currentNode][j]==1 && vertexes.get(j).visited==false){
+                topologicalSort(j);
+            }
+        }
+        topologicalSortNodes.push(currentNode);
+    }
+
     
     public void bfs(){
         Queue<Integer> queue = new LinkedBlockingQueue<Integer>();
@@ -117,6 +129,13 @@ public class DFS {
     public static void main(String ar[]){
         DFS dfs = new DFS();
         dfs.dfsRecursive(0);
+        System.out.println("TOPOLOGICAL SORT :: ");
+        DFS tpSort = new DFS();
+        tpSort.topologicalSort(0);
+        // print Topological sorted order nodes
+        while(!tpSort.topologicalSortNodes.isEmpty()) {
+            System.out.println(tpSort.vertexes.get(tpSort.topologicalSortNodes.pop()).name+"->");
+        }
         System.out.println("BFS :: ");
         new DFS().bfs();
     }

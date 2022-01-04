@@ -70,8 +70,8 @@ public class RestClient {
             //String url = "https://lnx.leantaas.com/druid-web/getpvmsummarydata";
             //String uidPwd="admin@leantaas.com:leoxnn9Adm1n";
             HttpsURLConnection conn=null;
-            sun.misc.BASE64Encoder b64 = new sun.misc.BASE64Encoder();
-            String encodedUidPwd = b64.encode(uidPwd.getBytes());
+            //sun.misc.BASE64Encoder b64 = new sun.misc.BASE64Encoder();
+            //String encodedUidPwd = b64.encode(uidPwd.getBytes());
 
             if((socksProxyHost==null || socksProxyHost.isEmpty()) && (socksProxyPort==null || socksProxyPort.isEmpty())){
                 URL resturl = new URL(url);
@@ -83,7 +83,7 @@ public class RestClient {
             conn.setDoOutput(true);  
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Content-type","text/html");
-            conn.setRequestProperty("Authorization", "Basic "+encodedUidPwd);
+            //conn.setRequestProperty("Authorization", "Basic "+encodedUidPwd);
             conn.setRequestProperty("User-Agent", "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3");
             conn.setRequestProperty("SSL_TLS_SNI","iqueue.leantaas.com");
             

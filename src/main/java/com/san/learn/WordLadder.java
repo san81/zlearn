@@ -2,14 +2,13 @@ package com.san.learn;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.TreeMap;
-import java.util.HashMap;
 import java.util.Queue;
 
 /*
@@ -83,7 +82,7 @@ public class WordLadder
                     
         return diffs == 1;
     }
-    
+
     private static <KeyType> void update( Map<KeyType,List<String>> m, KeyType key, String value )
     {
         List<String> lst = m.get( key );
