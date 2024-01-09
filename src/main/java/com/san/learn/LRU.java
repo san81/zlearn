@@ -32,10 +32,10 @@ public class LRU {
                 head.pre=node;
                 head=node;
                 head.pre=null;
-            }else if(node.pre==null && node.next!=null){
+            }else if(node.pre==null && node.next!=null) {
                 //this is already head node  do nothing.
                 
-            }else if(node.pre!=null && node.next==null){
+            } else if(node.pre!=null && node.next==null) {
                 //this is tail.  move tail node to head
                 tail=node.pre;
                 node.pre.next=null;
@@ -43,7 +43,7 @@ public class LRU {
                 head.pre=node;
                 head=node;
                 head.pre=null;
-            }else {
+            } else {
                 //Adding new element
                 node.next=head;
                 head.pre=node;

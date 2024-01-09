@@ -88,7 +88,7 @@ class UnlockASequence {
                 for(int i=0;i<4;i++) {
                         for(int d=-1;d<=1;d+=2){
                             int y = ((s.charAt(i) - '0') + d + 10) %10;
-                            String nei = s.substring(0,i)+(""+y)+s.substring(i+1);
+                            String nei = s.substring(0,i)+y+s.substring(i+1);
                             if(!visitedSeqStr.contains(nei) && !deadends.contains(nei)) {
                                     neighbors.add(nei);
                             }
@@ -134,11 +134,11 @@ class UnlockASequence {
         }
 
         public static void main(String[] args) {
-//                String target = "0202";
-//                String[] deadends = new String[]{"0201","0101","0102","1212","2002"};
+                String target = "0202";
+                String[] deadends = new String[]{"0201","0101","0102","1212","2002"};
 //                String[] deadends = new String[]{"0000"}; String target = "8888";
 //                String[] deadends = new String[]{"8888"}; String target = "0009";
-                String[] deadends = new String[]{"8889","8878","8898","8788","8988","7888","9888","8887"}; String target = "8888";
+//                String[] deadends = new String[]{"8889","8878","8898","8788","8988","7888","9888","8887"}; String target = "8888";
 //                String[] deadends = new String[]{"8887","8889","8878","8898","8788","8988","7888","9888"}; String target = "8888";
                 System.out.println(new UnlockASequence().openLock_san(deadends, target));
 

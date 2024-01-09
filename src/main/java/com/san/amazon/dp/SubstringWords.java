@@ -28,7 +28,7 @@ public class SubstringWords {
       String cw = s.substring(i, i + wlen);
       if (wordIdx.get(cw) != null && s.length() - i >= subStrLen - wlen) {
         boolean foundSubStr = seeIfThereIsSubstring(s, i, wlen, new HashMap<>(wordIdx), words.length);
-        if (foundSubStr) {
+        if(foundSubStr) {
           ans.add(i);
         }
       }
@@ -68,13 +68,13 @@ public class SubstringWords {
     ans = sw.findSubstring(s, words);
     System.out.println(ans);*/
 
-//    String s = "wordgoodgoodgoodbestword";
-//    String[] words = new String[] {"word", "good", "best", "good"};
-//    List<Integer> ans = sw.findSubstring(s, words);
-
-    String s = "aaa";
-    String[] words = new String[] {"a", "a"};
+    String s = "wordgoodgoodgoodbestword";
+    String[] words = new String[] {"word", "good", "best", "good"};
     List<Integer> ans = sw.findSubstring(s, words);
+
+//    String s = "aaa";
+//    String[] words = new String[] {"a", "a"};
+//    List<Integer> ans = sw.findSubstring(s, words);
 
     System.out.println(ans);
   }

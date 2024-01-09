@@ -128,7 +128,7 @@ public class DFS {
     
     public static void main(String ar[]){
         DFS dfs = new DFS();
-        dfs.dfsRecursive(0);
+//        dfs.dfsRecursive(0);
         System.out.println("TOPOLOGICAL SORT :: ");
         DFS tpSort = new DFS();
         tpSort.topologicalSort(0);
@@ -136,8 +136,8 @@ public class DFS {
         while(!tpSort.topologicalSortNodes.isEmpty()) {
             System.out.println(tpSort.vertexes.get(tpSort.topologicalSortNodes.pop()).name+"->");
         }
-        System.out.println("BFS :: ");
-        new DFS().bfs();
+//        System.out.println("BFS :: ");
+//        new DFS().bfs();
     }
 }
 

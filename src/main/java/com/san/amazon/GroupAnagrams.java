@@ -27,12 +27,11 @@ public class GroupAnagrams {
         List<List<String>> ret = new ArrayList<>();
         Map<String, List<String>> anagrams = new HashMap<>();
         for(String str:strs){
-            int hash = 1;
             char[] strChars = str.toCharArray();
             Arrays.sort(strChars);
             String key = String.valueOf(strChars);
             if(!anagrams.containsKey(key)) {
-                anagrams.put(key, new ArrayList<>());
+                anagrams.put(key, new ArrayList<>())    ;
             }
             anagrams.get(key).add(str);
 
@@ -46,3 +45,6 @@ public class GroupAnagrams {
         System.out.println(ret);
     }
 }
+
+
+

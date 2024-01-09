@@ -38,7 +38,7 @@ public class LevenshteinDistance {
                 }
             }
         }
-        System.out.println(" Distance "+getLevenshteinDistance(s1, "MVIEWER"));
+        System.out.println(" Distance "+getLevenshteinDistance("horse", "hose"));
        
     }
     
