@@ -1,0 +1,68 @@
+How do we design a process that would allow us to synchronise a frequently updated shared config in a distributed system? Psuedo-code is expected for this question.
+
+
+
+Exposing a service to update the Config
+
+Client - http calls to update the config
+
+Config
+    - Changing the number of threads
+
+
+Cron Job. (Client)
+
+Ui component: False -> True calls (Config Mgmt API Service): get(String key): Object
+                                                 set(String key, Object value): true
+
+
+class ConfigKey {
+    String key;
+    Object value;
+}
+
+class MyConfig {
+    List<ConfigKey> keys = new ArrayList<>();
+}
+
+
+Serailize the config and store in distributed cache instance like Redis   (ACID)
+
+GET : /get-config/
+PUT :  /<config-id>/config {json-payload }
+POST:  /config { json-payload }
+
+
+
+class GlobalExceptionHandler {
+
+}
+
+
+path("/get-config/<id>")
+public Response<Json> getConfig(String configId) {
+        SafeCheck and sanitize the payload String configId
+        RedisResponse rs = RedisDao.get(configId);
+        if(rs==null) {
+            throw new InvalidRequestParameters("Invalid configId given");
+        }
+}
+
+path("/config/")
+public Response<Json> saveConfigKey(String key, Strign Object, int ttl) {
+        SafeCheck and sanitize the payload String configId
+        //auto expire time. TTL
+        RedisResponse rs = RedisDao.get(configId);
+        if(rs==null) {
+            //It is not expired
+            rs.save(key, value, ttl);
+        }
+}
+
+
+
+
+
+
+
+
