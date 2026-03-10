@@ -10,95 +10,92 @@ public class LRU {
     public DoublyLinkedList head;
     public DoublyLinkedList tail;
     int capacity;
-    int len;
     
     public LRU(int capacity){
         this.capacity=capacity;
-        len=0;
     }
     
     public void setHead(DoublyLinkedList node){
-        if(head==null){
-            head=node;
-            head.next=null;
-            head.pre=null;
-        }else{
-            
-           
-            if(node.pre!=null && node.next!=null){
-                node.pre.next=node.next;
-                node.next.pre=node.pre;
-                node.next=head;
-                head.pre=node;
-                head=node;
-                head.pre=null;
-            }else if(node.pre==null && node.next!=null) {
-                //this is already head node  do nothing.
-                
-            } else if(node.pre!=null && node.next==null) {
-                //this is tail.  move tail node to head
-                tail=node.pre;
-                node.pre.next=null;
-                node.next=head;
-                head.pre=node;
-                head=node;
-                head.pre=null;
-            } else {
-                //Adding new element
-                node.next=head;
-                head.pre=node;
-                head=node;
-            }
+        removeNode(node);
+        addToHead(node);
+    }
+
+    public void removeNode(DoublyLinkedList node) {
+        if(node.pre != null) {
+            node.pre.next = node.next;
+        }else {
+            head = node.next;
+        }
+
+        if(node.next !=null) {
+            node.next.pre = node.pre;
+        }else {
+            tail = node.pre;
         }
     }
-    
+
+
+    public void addToHead(DoublyLinkedList node) {
+        node.pre = null;
+        node.next = head;
+
+        if(head !=null) {
+            head.pre = node;
+        }
+
+        head = node;
+
+        if(tail == null) {
+            tail = node;
+        }
+    }
+
     public void removeKey(Integer key){
-        DoublyLinkedList nodeToRemove=map.get(key);
-        if(nodeToRemove!=null){
-            if(nodeToRemove.pre==null){
-                head=nodeToRemove.next;
-                head.pre=null;
-            }else if(nodeToRemove.next==null){
-                tail=nodeToRemove.pre;
-                nodeToRemove.pre.next=null;
-            }else {
-                nodeToRemove.pre.next=nodeToRemove.next;
-                nodeToRemove.next.pre=nodeToRemove.pre;
-            }
-            map.remove(key);
+
+        DoublyLinkedList node = map.get(key);
+        if(node == null) return;
+
+        if(node.pre != null){
+            node.pre.next = node.next;
+        }else{
+            head = node.next;
         }
-        
-       
+
+        if(node.next != null){
+            node.next.pre = node.pre;
+        }else{
+            tail = node.pre;
+        }
+
+        node.pre = null;
+        node.next = null;
+
+        map.remove(key);
     }
     
-    public void put(Integer key, String value){
-        if(null==map.get(key)){
-            DoublyLinkedList newNode=new DoublyLinkedList();
-            newNode.value=value;
-            map.put(key, newNode);
-            if(len==capacity){
-                tail.pre.next=null;
-                tail=tail.pre;
-            }
-            
-            setHead(newNode);
-           
-            len++;
-        }else{
-            DoublyLinkedList newHead=map.get(key);
-            removeKey(key);
+    public void put(Integer key, String value) {
+        DoublyLinkedList newHead=map.get(key);
+        if(newHead != null) {
+            newHead.value = value;
             setHead(newHead);
+            return;
         }
+
+        DoublyLinkedList newNode=new DoublyLinkedList();
+        newNode.value=value;
+        map.put(key, newNode);
+        if(map.size()==capacity){
+            removeNode(newNode);
+        }
+        setHead(newNode);
+        setHead(newNode);
     }
     
     public String get(Integer key){
-        if(map.get(key)!=null){
-            DoublyLinkedList latestNode=map.get(key);
-            setHead(latestNode);
-            return latestNode.value;
-        }else{
-            return null;
-        }
+        DoublyLinkedList latestNode=map.get(key);
+        if(latestNode==null) return null;
+        setHead(latestNode);
+        return latestNode.value;
     }
     
     public void print(){
@@ -115,6 +112,8 @@ public class LRU {
     public static void main(String ar[]){
         LRU lru = new LRU(3);
         lru.put(1, "First");
+        lru.print();
+        lru.put(1, "Fir");
         lru.print();
         lru.put(2, "Second");
         lru.print();
@@ -138,6 +137,7 @@ public class LRU {
 }
 
 class DoublyLinkedList {
+    int key;
     String value;
     DoublyLinkedList pre;
     DoublyLinkedList next;
